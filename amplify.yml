@@ -1,12 +1,11 @@
 version: 1
-frontend:
-  phases:
-    build:
-      commands:
-        - pip install -r requirements.txt
-  artifacts:
-    baseDirectory: /
-    files:
-      - '**/*'
-  cache:
-    paths: []
+applications:
+  - frontend:
+      phases:
+        build:
+          commands:
+            - pip install -r requirements.txt
+        start:
+          commands:
+            - python main.py
+    appRoot: /

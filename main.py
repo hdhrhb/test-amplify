@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-import json
+import os
 
 app = Flask(__name__)
 
@@ -17,5 +17,6 @@ def add():
         TODOS.append(todo)
     return redirect(url_for('index'))
 
+# 重要: Amplifyのデプロイ用に追加
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
